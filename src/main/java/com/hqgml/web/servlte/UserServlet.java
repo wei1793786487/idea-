@@ -289,7 +289,7 @@ public class UserServlet extends BaseServlet {
         }
     }
 
-    public void register(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void register(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String name = request.getParameter("name");
         String check = request.getParameter("check");
         if (check != null && name != null) {
@@ -303,8 +303,11 @@ public class UserServlet extends BaseServlet {
                     //注册方法
                     Map<String, String[]> parameterMap = request.getParameterMap();
                     ManagerUser managerUser = new ManagerUser();
+                    String pswd = request.getParameter("pswd");
+                    String md5Pswd = Md5Util.encodeByMd5(pswd);
                     try {
                         BeanUtils.populate(managerUser, parameterMap);
+                        managerUser.setPswd(md5Pswd);
                     } catch (IllegalAccessException e) {
                         e.printStackTrace();
                     } catch (InvocationTargetException e) {
