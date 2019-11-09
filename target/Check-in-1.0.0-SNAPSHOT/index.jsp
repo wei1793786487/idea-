@@ -73,7 +73,7 @@
         <%--        </div>--%>
         <!-- /.social-auth-links -->
 
-        <%--        <a href="#">忘记密码</a>--%>
+                <a href="register.jsp">没有账号,立即注册</a>
 
         <p id="errorMsg" class="h3" style="text-align: center;"></p>
 
