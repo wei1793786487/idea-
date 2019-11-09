@@ -14,7 +14,6 @@ public class manager_loginFilter implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
 //        System.out.println("wob");
     }
-
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         boolean IsLogun = true;
