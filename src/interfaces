@@ -1,0 +1,31 @@
+/file  上传文件
+
+
+
+/log/manager_log 普管的日志查看
+/log/Surper_log  超管的日志查看
+/Meeting/addmeeting 添加会议
+/Meeting/meetinglist 查看会议列表
+/Meeting/findmeetingbyid 通过id查询会议
+/Meeting/findCheckByMid 通过会议id查询所有
+/Meeting/findUnCheckByMid 根据会议id查询会议未签到的人
+/Meeting/findCheck  根据会议id查询已经签到的人
+/Meeting/delectMeeting 根据会议的id删除会议（id为数组）
+/Meeting/delectPeople 根据会议id删除人员
+/Meeting/sendNotice 发送通知短信
+
+
+
+/user/Verification 验证码
+/user/login 登录
+/user/chancepswd 修改密码
+/user/exits 退出
+/user/sendMessgae 发送短信
+/user/findAllUser 查询所以用户
+/user/register 注册用户
+
+
+
+
+/video 签到
+

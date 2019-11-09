@@ -1,0 +1,32 @@
+<script>
+    $(document).ready(function() {
+
+        $.get("/Meeting/meetinglist","",function (data) {
+
+
+        })
+
+
+    });
+</script>
+
+
+response.getWriter().write("<script>alert('文件大小不能超过100m');window.location.href='./managers/person_list.jsp?id=" + meetid + "';</script>");
+
+
+list的遍历
+  var listdata = "";
+                for (var i = 0; i < data.(list).length; i++) {
+                    var list = data.(list)[i];
+                    var li = ''
+                    listdata += li;
+                }
+
+
+                  ManagerUser manager = (ManagerUser) req.getSession().getAttribute("manager");
+                        String id = req.getParameter("id");
+                        if (manager!=null){
+                            if (!id.equals(manager.getId().toString())){
+                                resp.getWriter().write("你没有查看权限");
+                            }
+                        }
