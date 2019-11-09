@@ -82,17 +82,7 @@
                                                    id="dateTimePicker">
                                         </div>
                                     </div>
-                                    <div class="col-md-2 title">会议结束时间</div>
-                                    <div class="col-md-4 data">
-                                        <div class="input-group date">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                            <input name="times2" type="text" itemid="times"
-                                                   class="form-control pull-right"
-                                                   id="dateTimePicker2">
-                                        </div>
-                                    </div>
+
                                     <div class="col-md-2 title">会议人员添加</div>
                                     <div class="col-md-4 data">
                                         <input type="text" value="请在报名管理中添加人员" disabled class="form-control">
