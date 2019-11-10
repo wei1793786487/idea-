@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * @data 11/4/2019 10:51 PM
  **/
-@WebFilter(urlPatterns = {"/file", "/log/*", "/Meeting/*", "/user/*", "/video","/Signin/*","/Others/*","/upload/*"})
+@WebFilter(urlPatterns = {"/file", "/log/*", "/Meeting/*", "/user/*", "/video","/Signin/","/Others/","/upload/"})
 public class ActionFilter implements Filter {
 
     @Override
@@ -39,10 +39,14 @@ public class ActionFilter implements Filter {
             }else if (manager!=null){
                 if (requestURI.contains("findAllUser")){
                    res.getWriter().write("你没有这个权限");
+                   return;
                 }else {
                     //这里应该是过滤访问所有的
                     filterChain.doFilter(servletRequest, servletResponse);
                 }
+            }else {
+                res.getWriter().write("你没有这个权限");
+                return;
             }
         }
 

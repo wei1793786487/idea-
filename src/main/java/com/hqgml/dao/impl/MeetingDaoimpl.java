@@ -21,8 +21,8 @@ public class MeetingDaoimpl implements MeetingDao {
 
     @Override
     public int meeting_add(Meeting mt) {
-        String sql = "insert into meeting(add_id,metting_address,meeting_name,times,meeting_phone,uuid) value(?,?,?,?,?,?) ";
-        int update = jdbcTemplate.update(sql, mt.getAdd_id(), mt.getMetting_address(), mt.getMeeting_name(), mt.getTimes(), mt.getMeeting_phone(), mt.getUuid());
+        String sql = "insert into meeting(add_id,metting_address,meeting_name,times,times2,meeting_phone,uuid) value(?,?,?,?,?,?,?) ";
+        int update = jdbcTemplate.update(sql, mt.getAdd_id(), mt.getMetting_address(), mt.getMeeting_name(), mt.getTimes(),mt.getTimes2(), mt.getMeeting_phone(), mt.getUuid());
         return update;
     }
 

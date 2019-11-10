@@ -323,7 +323,7 @@ public class MeetingServlet extends BaseServlet {
             for (MeetingUers user : users) {
                 if (user.getPhone() != null) {
                     String[] phone = {user.getPhone()};
-                    int i = MsgUtils.SetNotice(phone, user.getPerson_name(), meeting.getMeeting_name(), Noticetime, meeting.getMetting_address());
+                    int i = MsgUtils.SetNotice(phone, user.getPerson_name(), meeting.getMeeting_name(), meeting.getTimes2(),Noticetime, meeting.getMetting_address());
                     if (i == 0) {
                         System.out.println(i);
                         isSend = true;
