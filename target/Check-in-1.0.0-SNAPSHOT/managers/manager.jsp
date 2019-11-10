@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="../config/css.jsp"%>
+    <%@include file="../config/css.jsp" %>
 </head>
 <body class="hold-transition skin-purple sidebar-mini">
 
@@ -34,28 +34,32 @@
 
         <!-- 正文区域 -->
         <section class="content">
-            <a></a><br />
-            <a></a><br />
+            <a></a><br/>
+            <a></a><br/>
             <div class="alert alert-block ">
 
-<%--                欢迎使用--%>
-<%--                <strong>--%>
-<%--                    多用户会议签到系统-网站后台--%>
-<%--                    <small>(v1.0)</small>--%>
-<%--                </strong>--%>
-                <h3 > 欢迎使用 <strong>多用户会议签到系统-网站后台</strong>，您上次登录的地点是<strong>${manager.address}</strong>.</h3>
-<%--                <%--%>
-<%--                    ManagerUser manager = (ManagerUser) request.getSession().getAttribute("manager");--%>
-<%--                    System.out.println(manager.getAddress());--%>
-<%--                %>--%>
+                <%--                欢迎使用--%>
+                <%--                <strong>--%>
+                <%--                    多用户会议签到系统-网站后台--%>
+                <%--                    <small>(v1.0)</small>--%>
+                <%--                </strong>--%>
+                <c:if test="${manager.address!=null}">
+                    <h3> 欢迎使用 <strong>多用户会议签到系统-网站后台</strong>，您上次登录的地点是<strong>${manager.address}。</strong>.</h3>
+                </c:if>
+                <c:if test="${manager.address==null}">
+                    <h3> 欢迎使用 <strong>多用户会议签到系统-网站后台</strong>，欢迎您初次登陆本系统。</strong>.</h3>
+                </c:if>
+
+                <%--                <%--%>
+                <%--                    ManagerUser manager = (ManagerUser) request.getSession().getAttribute("manager");--%>
+                <%--                    System.out.println(manager.getAddress());--%>
+                <%--                %>--%>
 
             </div>
-<%--       <h3 style="">会议签到进入</h3>--%>
+            <%--       <h3 style="">会议签到进入</h3>--%>
 
         </section>
         <!-- 正文区域 /-->
-
-
 
 
     </div>

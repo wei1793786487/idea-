@@ -44,10 +44,10 @@
                 <%--                    <small>(v1.0)</small>--%>
                 <%--                </strong>--%>
                 <c:if test="${manager.address!=null}">
-                    <h3> 欢迎使用 <strong>多用户会议签到系统-网站后台</strong>，您上次登录的地点是<strong>${manager.address}。</strong>.</h3>
+                    <h3> 欢迎使用 <strong>多用户会议签到系统-网站后台</strong>，您上次登录的地点是<strong>${manager.address}</strong>。</h3>
                 </c:if>
                 <c:if test="${manager.address==null}">
-                    <h3> 欢迎使用 <strong>多用户会议签到系统-网站后台</strong>，您是第一次登陆。</strong>.</h3>
+                    <h3> 欢迎使用 <strong>多用户会议签到系统-网站后台</strong>，欢迎您初次登陆本系统</strong>。</h3>
                 </c:if>
 
                 <%--                <%--%>
