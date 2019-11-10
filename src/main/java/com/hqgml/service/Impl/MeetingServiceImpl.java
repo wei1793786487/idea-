@@ -74,17 +74,20 @@ public class MeetingServiceImpl implements MeetingService {
 
     @Override
     public Meeting FindMeetingById(String _id) {
-        int id = Integer.parseInt(_id);
+        Integer id = null;
+        if (_id != null) {
+            id = Integer.parseInt(_id);
+        }
         Meeting mt = md.FindMeetingById(id);
         return mt;
     }
 
     @Override
     public List<MeetingUers> FindPeoleByuid(String s, String name) {
-        List<MeetingUers> meetingUers = md.FindPeopleByUid(s,name);
+        List<MeetingUers> meetingUers = md.FindPeopleByUid(s, name);
         //查询为之后将mid对应的会议的人数加1
 //        将list集合的大小转换为string
-        if (name.equals("")){
+        if (name.equals("")) {
             String size = "" + meetingUers.size();
             boolean save = otherActionService.Save("meeting", "meeting_number", size, "id", s);
         }
@@ -132,17 +135,18 @@ public class MeetingServiceImpl implements MeetingService {
     }
 
     @Override
-    public boolean isCheckByPeopleName(String name,String mid) {
-        MeetingUers checkByPeopleName = md.isCheckByPeopleName(name,mid);
-        if (checkByPeopleName!=null){
-             if (checkByPeopleName.getIsCheck().equals("0")){
-                 return false;
-             }if (checkByPeopleName.getIsCheck().equals("1")){
-                 return true;
-            }else {
-                 return false;
+    public boolean isCheckByPeopleName(String name, String mid) {
+        MeetingUers checkByPeopleName = md.isCheckByPeopleName(name, mid);
+        if (checkByPeopleName != null) {
+            if (checkByPeopleName.getIsCheck().equals("0")) {
+                return false;
             }
-        }else {
+            if (checkByPeopleName.getIsCheck().equals("1")) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
             return false;
         }
     }

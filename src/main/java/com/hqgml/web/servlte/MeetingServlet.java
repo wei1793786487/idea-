@@ -85,11 +85,11 @@ public class MeetingServlet extends BaseServlet {
         ManagerUser manager = (ManagerUser) req.getSession().getAttribute("manager");
         Object usrper_user = req.getSession().getAttribute("usrper_user");
         String id = req.getParameter("id");
-        if (usrper_user==null){
+        if (usrper_user == null) {
             if (manager == null || id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().toString().equals(id)){
+            } else if (!manager.getId().toString().equals(id)) {
                 resp.getWriter().write("你没有查看权限");
                 return;
             }
@@ -107,13 +107,19 @@ public class MeetingServlet extends BaseServlet {
         ManagerUser manager = (ManagerUser) req.getSession().getAttribute("manager");
         Object usrper_user = req.getSession().getAttribute("usrper_user");
         String id = req.getParameter("id");
-        Meeting mt = ms.FindMeetingById(id);
-        Integer add_id = mt.getAdd_id();
-        if (usrper_user==null){
+        Meeting mt = null;
+        Integer add_id = null;
+        if (id != null) {
+            mt = ms.FindMeetingById(id);
+        }
+        if (mt != null) {
+            add_id = mt.getAdd_id();
+        }
+        if (usrper_user == null) {
             if (manager == null || id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().toString().equals(id)){
+            } else if (!manager.getId().equals(add_id)) {
                 resp.getWriter().write("你没有查看权限");
                 return;
             }
@@ -140,11 +146,11 @@ public class MeetingServlet extends BaseServlet {
         }
         Meeting meeting = ms.FindMeetingById(mid);
         Integer add_id = meeting.getAdd_id();
-        if (usrper_user==null){
+        if (usrper_user == null) {
             if (manager == null || add_id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().equals(add_id)){
+            } else if (!manager.getId().equals(add_id)) {
                 resp.getWriter().write("你没有查看权限");
                 return;
             }
@@ -154,6 +160,10 @@ public class MeetingServlet extends BaseServlet {
             jsonString.setInformation("该会议不存在");
             writeValue(jsonString, resp);
             return;
+        }
+        if (name == null) {
+
+            name = "";
         }
         //如果like里面没有那么就
         List<MeetingUers> meetingUers = ms.FindPeoleByuid(mid, name);
@@ -166,11 +176,11 @@ public class MeetingServlet extends BaseServlet {
         ManagerUser manager = (ManagerUser) req.getSession().getAttribute("manager");
         Meeting meeting = ms.FindMeetingById(mid);
         Integer add_id = meeting.getAdd_id();
-        if (usrper_user==null){
+        if (usrper_user == null) {
             if (manager == null || add_id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().equals(add_id)){
+            } else if (!manager.getId().equals(add_id)) {
                 resp.getWriter().write("你没有查看权限");
                 return;
             }
@@ -187,11 +197,11 @@ public class MeetingServlet extends BaseServlet {
         Object usrper_user = req.getSession().getAttribute("usrper_user");
         Meeting meeting = ms.FindMeetingById(mid);
         Integer add_id = meeting.getAdd_id();
-        if (usrper_user==null){
+        if (usrper_user == null) {
             if (manager == null || add_id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().equals(add_id)){
+            } else if (!manager.getId().equals(add_id)) {
                 resp.getWriter().write("你没有查看权限");
                 return;
             }
@@ -209,11 +219,11 @@ public class MeetingServlet extends BaseServlet {
         Object usrper_user = req.getSession().getAttribute("usrper_user");
         Meeting meeting = ms.FindMeetingById(id);
         Integer add_id = meeting.getAdd_id();
-        if (usrper_user==null){
+        if (usrper_user == null) {
             if (manager == null || add_id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().equals(add_id)){
+            } else if (!manager.getId().equals(add_id)) {
                 resp.getWriter().write("你没有查看权限");
                 return;
             }
@@ -235,11 +245,11 @@ public class MeetingServlet extends BaseServlet {
         Object usrper_user = req.getSession().getAttribute("usrper_user");
         Meeting meeting = ms.FindMeetingById(ids[0]);
         Integer add_id = meeting.getAdd_id();
-        if (usrper_user==null){
+        if (usrper_user == null) {
             if (manager == null || add_id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().equals(add_id)){
+            } else if (!manager.getId().equals(add_id)) {
 
                 resp.getWriter().write("你没有查看权限");
                 return;
@@ -268,11 +278,11 @@ public class MeetingServlet extends BaseServlet {
         ManagerUser manager = (ManagerUser) req.getSession().getAttribute("manager");
         Meeting meeting = ms.FindMeetingById(mid);
         Integer add_id = meeting.getAdd_id();
-        if (usrper_user==null){
+        if (usrper_user == null) {
             if (manager == null || add_id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().toString().equals(add_id)){
+            } else if (!manager.getId().equals(add_id)) {
                 resp.getWriter().write("你没有查看权限");
                 return;
             }
@@ -299,11 +309,11 @@ public class MeetingServlet extends BaseServlet {
         ManagerUser manager = (ManagerUser) req.getSession().getAttribute("manager");
         Meeting meeting = ms.FindMeetingById(id);
         Integer add_id = meeting.getAdd_id();
-        if (usrper_user==null){
+        if (usrper_user == null) {
             if (manager == null || add_id == null) {
                 resp.getWriter().write("你没有查看权限");
                 return;
-            }else if (!manager.getId().toString().equals(add_id)){
+            } else if (!manager.getId().equals(add_id)) {
                 resp.getWriter().write("你没有查看权限");
                 return;
             }
@@ -313,7 +323,7 @@ public class MeetingServlet extends BaseServlet {
             for (MeetingUers user : users) {
                 if (user.getPhone() != null) {
                     String[] phone = {user.getPhone()};
-                    int i = MsgUtils.SetNotice(phone, user.getPerson_name(), meeting.getMeeting_name(),Noticetime,meeting.getMetting_address());
+                    int i = MsgUtils.SetNotice(phone, user.getPerson_name(), meeting.getMeeting_name(), Noticetime, meeting.getMetting_address());
                     if (i == 0) {
                         isSend = true;
                         LogUtlis.setlog(req.getSession(), req, "给" + user.getPerson_name() + "发送短信成功");
