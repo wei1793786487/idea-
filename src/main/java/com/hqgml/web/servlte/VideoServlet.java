@@ -47,18 +47,18 @@ public class VideoServlet extends HttpServlet {
         //通过id找打是哪个会议 再找到是哪个会议组
         if (image != null && mid != null && !mid.equals("")) {
             Meeting meeting = meetingService.FindMeetingById(mid);
-            String startTimes = meeting.getTimes();
-            String endTimes = meeting.getTimes2();
-            try {
-                 timeBetween = Timeutils.hourMinuteBetween(startTimes, endTimes);
-            } catch (Exception e) {
-                timeBetween=false;
-            }
-            if (!timeBetween){
-                jsonString.setInformation("对不起，不在签到时间范围之内");
-                WriteJsonUtlis.writeValue(jsonString, response);
-                return;
-            }
+//            String startTimes = meeting.getTimes();
+//            String endTimes = meeting.getTimes2();
+//            try {
+//                 timeBetween = Timeutils.hourMinuteBetween(startTimes, endTimes);
+//            } catch (Exception e) {
+//                timeBetween=false;
+//            }
+//            if (!timeBetween){
+//                jsonString.setInformation("对不起，不在签到时间范围之内");
+//                WriteJsonUtlis.writeValue(jsonString, response);
+//                return;
+//            }
 //        System.out.println(image);
             //将找到会议的唯一标识uuid放入寻找
             TencentString tencentString = TencentUtils.SearchFaces(meeting.getUuid(), image);
