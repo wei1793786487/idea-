@@ -325,6 +325,7 @@ public class MeetingServlet extends BaseServlet {
                     String[] phone = {user.getPhone()};
                     int i = MsgUtils.SetNotice(phone, user.getPerson_name(), meeting.getMeeting_name(), Noticetime, meeting.getMetting_address());
                     if (i == 0) {
+                        System.out.println(i);
                         isSend = true;
                         LogUtlis.setlog(req.getSession(), req, "给" + user.getPerson_name() + "发送短信成功");
                     } else {
