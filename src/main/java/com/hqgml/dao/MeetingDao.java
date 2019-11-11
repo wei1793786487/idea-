@@ -86,4 +86,6 @@ public interface MeetingDao {
 
 
     MeetingUers isCheckByPeopleName(String name,String mid);
+
+
 }

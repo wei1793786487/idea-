@@ -319,11 +319,12 @@ public class MeetingServlet extends BaseServlet {
             }
         }
         if (users != null && meeting != null) {
-            String Noticetime = Timeutils.GetNoticetime(meeting.getTimes());
+            String NoticeStarttime = Timeutils.GetNoticetime(meeting.getTimes());
+            String NoticeEndtime = Timeutils.GetNoticetime(meeting.getTimes2());
             for (MeetingUers user : users) {
                 if (user.getPhone() != null) {
                     String[] phone = {user.getPhone()};
-                    int i = MsgUtils.SetNotice(phone, user.getPerson_name(), meeting.getMeeting_name(), meeting.getTimes2(),Noticetime, meeting.getMetting_address());
+                    int i = MsgUtils.SetNotice(phone, user.getPerson_name(), meeting.getMeeting_name(),NoticeStarttime,NoticeEndtime,meeting.getMetting_address());
                     if (i == 0) {
                         System.out.println(i);
                         isSend = true;

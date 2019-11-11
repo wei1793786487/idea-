@@ -73,33 +73,32 @@ public class UserServlet extends BaseServlet {
         session = request.getSession();
         String res = (String) session.getAttribute("res");
         session.removeAttribute("res");
-        if (res == null || !res.equalsIgnoreCase(check)) {
-            System.out.println("验证码不正确失败");
-            uf.setFlag(false);
-            uf.setErrorMsg("验证码输入错误");
-            writeValue(uf, response);
-            return;//验证码验证失败存入然后响应到页面
-        }
-        //判断异常信息
-        if (request.getParameter("username") == "") {
-            uf.setFlag(false);
-            uf.setErrorMsg("用户名不能为空");
-            writeValue(uf, response);
-            return;
-        }
-        if (request.getParameter("password") == "") {
-            uf.setFlag(false);
-            uf.setErrorMsg("请填写密码");
-            writeValue(uf, response);
-            return;
-        }
-        if (request.getParameter("verifycode") == "") {
-            uf.setFlag(false);
-            uf.setErrorMsg("验证码不能为空");
-            writeValue(uf, response);
-            return;
-        }
-        System.out.println("haha");
+//        if (res == null || !res.equalsIgnoreCase(check)) {
+//            System.out.println("验证码不正确失败");
+//            uf.setFlag(false);
+//            uf.setErrorMsg("验证码输入错误");
+//            writeValue(uf, response);
+//            return;//验证码验证失败存入然后响应到页面
+//        }
+//        //判断异常信息
+//        if (request.getParameter("username") == "") {
+//            uf.setFlag(false);
+//            uf.setErrorMsg("用户名不能为空");
+//            writeValue(uf, response);
+//            return;
+//        }
+//        if (request.getParameter("password") == "") {
+//            uf.setFlag(false);
+//            uf.setErrorMsg("请填写密码");
+//            writeValue(uf, response);
+//            return;
+//        }
+//        if (request.getParameter("verifycode") == "") {
+//            uf.setFlag(false);
+//            uf.setErrorMsg("验证码不能为空");
+//            writeValue(uf, response);
+//            return;
+//        }
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String md5password=null;

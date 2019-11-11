@@ -135,10 +135,10 @@ public class FileServlet extends HttpServlet {
         }else {
             boolean b = mf.SetMeeting(mt);
             if (b) {
-                 LogUtlis.setlog(session,request,"人脸添加");
+                 LogUtlis.setlog(session,request,"人脸添加,"+mt.getPerson_name()+"");
                 response.getWriter().write("<script>alert('上传成功');window.location.href=document.referrer;</script>");
             } else {
-                LogUtlis.setlog(session,request,"人脸添加,但是失败了");
+                LogUtlis.setlog(session,request,"人脸失败");
                 response.getWriter().write("<script>alert('文件上传过程出现问题');window.history.back(-1);</script>");
             }
         }
