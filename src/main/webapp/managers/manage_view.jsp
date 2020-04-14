@@ -133,7 +133,6 @@
              $("#meeting_number").html(data.meeting_number);
          }
 
-
         })
 
 

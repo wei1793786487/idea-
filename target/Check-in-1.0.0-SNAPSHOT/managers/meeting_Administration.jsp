@@ -161,17 +161,7 @@
 
     function load(currenpage) {
         // alert("ahahsha");
-        $.get("/Meeting/meetinglist", {currentPage:currenpage,id:${manager.id}}, function (pb) {
-            $("#total").html(pb.total);
-            $("#totalcont").html(pb.totalcont)
-            //分页
-            //算出上/下一页页码
-            var beforepage = currenpage - 1;
-            var alterpage = currenpage+1;
-            var page = "";
-            var fristpage='  <li>\n' +
-                '                                        <a href="javascript:load('+1+')" aria-label="Previous">首页</a>\n' +
-                '                                    </li>\n'
+
 
             if(beforepage<1){
                 fristpage+=     '                                    <li class="disabled"><a href="javascript:javascript:void(0)">上一页</a></li>'

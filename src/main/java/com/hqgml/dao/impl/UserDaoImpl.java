@@ -21,7 +21,7 @@ public class UserDaoImpl implements UesrDao {
 
     @Override
     public ManagerUser GetManagerUser(String username, String password) {
-        String sql = "select *from manageruser where name=? and pswd=?";
+        String sql = "select *from sys_user where username=? and password=?";
         try {
             ManagerUser managerUser = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<ManagerUser>(ManagerUser.class), username, password);
             return managerUser;
